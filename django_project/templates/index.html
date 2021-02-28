@@ -1,0 +1,132 @@
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Python button script
+        </title>
+    </head>
+    <body>
+        <button onclick="location.href='{% url 'script' %}'">Execute Script</button> <hr>
+        {% if data %}
+        {{ data }}
+        {% endif %}
+
+        <form action="/external/" method="post">
+            {% csrf_token %}
+            Input Text:
+            <input type="text" name="param" required><br><br>
+            {{data_external}}<br><br>
+            {{data1}}
+            <br><br>
+            <input type="submit" value="Execute External Python Script">
+        
+        </form>
+
+    </body>
+</html>
+-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <style>
+
+input[type=submit] {
+  width: 500px;
+  height: 200px;
+  margin-left: 32%;
+  margin-bottom: 50%;
+  box-sizing: border-box;
+}
+input[type=text] {
+  width: 0%;
+  padding: 0px 0;
+  margin: 0px 0;
+  box-sizing: border-box;
+}
+h1 {
+    margin-left: 25%;
+    margin-top: 40px;
+    font-family: 'Comic Sans MS';
+}
+
+
+
+    </style>
+
+    {% if title %}
+        <title>Django Blog - {{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+
+  <h1>The Hardware Bros | CuseHacks 2021</h1>
+  <!-- <link href="home.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body>
+
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="/">Django Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="/">Home</a>
+                <a class="nav-item nav-link" href="/about">About</a>
+              </div>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Login</a>
+                <a class="nav-item nav-link" href="#">Register</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+
+    <div class="onoffswitch">
+      <!--  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" action="/external/" onclick="validate()" tabindex="0" unchecked> -->
+        
+
+      <form action="/external/" method="post">
+        {% csrf_token %}
+        <input type="text" name="param"><br><br>
+        {{data_external}}<br><br>
+        {{data1}}
+        <br><br>
+        <input type="submit" value="OPEN / CLOSE"> </form>
+
+
+
+        <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+        </label>
+    </div>
+
+           <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
